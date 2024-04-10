@@ -66,7 +66,7 @@ local function decode_dns_resp(rxbuff)
         pos = pos + n + 1
     end
     domain = domain:sub(1, #domain - 1)
-    log.info("dns", "解析域名", domain)
+    -- log.info("dns", "解析域名", domain)
     pos = pos + 1 + 4 -- 跳过\0和后面的查询类型
     -- 响应有多少呢
     local ARRs = rxbuff[6] * 256 + rxbuff[7]
@@ -100,7 +100,7 @@ local function decode_dns_resp(rxbuff)
                 -- 4字节IP
                 local ip1,ip2,ip3,ip4 = rxbuff[pos], rxbuff[pos+1], rxbuff[pos+2], rxbuff[pos+3]
                 local ip = string.format("%d.%d.%d.%d", ip1, ip2, ip3, ip4)
-                log.info("dns", "IP", ip)
+                -- log.info("dns", "IP", ip)
                 table.insert(results, {ip=ip, ttl=ttl})
                 -- return {ip=ip,ttl=ttl}
             end

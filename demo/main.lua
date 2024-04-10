@@ -67,32 +67,38 @@ sys.taskInit(function()
     -- sys.subscribe(dnsclient.opts.topic, dns_result_cb)
 
     dnsclient.query("air32.cn")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("www.baidu.com")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("iot.openluat.com")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("air724ug.cn")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("aliyun.com")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("ntp.aliyun.com")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
-    dnsclient.query("qq.com")
-    sys.wait(500)
+    dnsclient.query("www.google.com")
+    sys.waitUntil("dnsc_inc", 500)
+
+    dnsclient.query("github.com")
+    sys.waitUntil("dnsc_inc", 500)
+
+    dnsclient.query("gitee.com")
+    sys.waitUntil("dnsc_inc", 500)
 
     -- 加几个肯定不合法的域名
     dnsclient.query("air.cnttt")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     dnsclient.query("zzz.cnzzz")
-    sys.wait(500)
+    sys.waitUntil("dnsc_inc", 500)
 
     log.info("全部结束")
 end)
